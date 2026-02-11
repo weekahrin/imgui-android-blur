@@ -1,10 +1,10 @@
-# imgui-android-blur
+# ImGui Android Blur
 
 Minimal OpenGL ES 3.0 blur helper for Android. Two paths:
 - `Hardware::GPU` (fast, framebuffer ping-pong)
 - `Hardware::CPU` (readback + CPU box blur)
 - `Blur::Type`:
-  - `Default` (legacy behavior)
+  - `Default`
   - `Gaussian`
   - `Box`
   - `Frosted`
