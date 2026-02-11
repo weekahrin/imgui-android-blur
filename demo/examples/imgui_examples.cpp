@@ -1,10 +1,6 @@
 #include "imgui.h"
 #include "../../blur.hpp"
 
-// imgui_examples.cpp
-// Demonstrates multiple ways to use Blur in ImGui.
-// Показывает несколько способов использования Blur в ImGui.
-
 static Blur gBlur(Hardware::GPU);
 
 static const char* kTypeNames[] = {
@@ -54,16 +50,12 @@ void ExampleFrame(int screen_w, int screen_h) {
 
     ImDrawList* dl = ImGui::GetBackgroundDrawList();
 
-    // Mode 0: DrawList overload draws blur image automatically.
-    // Режим 0: перегрузка DrawList сама отрисовывает блюр.
     if (mode == 0) {
         ImGui::Begin("Blur via DrawList overload", nullptr, ImGuiWindowFlags_NoResize);
         ImGui::SetWindowSize(ImVec2(360.0f, 200.0f), ImGuiCond_Always);
         gBlur.process(ImGui::GetWindowDrawList(), corner, radius, downscale, gBlur.backend);
         ImGui::TextUnformatted("Blur::process(draw, corner, radius, downscale, backend)");
         ImGui::End();
-    // Mode 1: blur via ImRect + manual AddImageRounded.
-    // Режим 1: блюр через ImRect + ручной AddImageRounded.
     } else if (mode == 1) {
         ImVec2 min(40.0f, 100.0f);
         ImVec2 max(40.0f + 360.0f, 100.0f + 200.0f);
@@ -74,8 +66,6 @@ void ExampleFrame(int screen_w, int screen_h) {
                             IM_COL32(255, 255, 255, 255), corner, ImDrawFlags_RoundCornersAll);
         dl->AddText(ImVec2(min.x + 8.0f, min.y + 8.0f), IM_COL32(255, 255, 255, 255),
                     "Blur::process(ImRect, radius, downscale)");
-    // Mode 2: blur via position/size overload + manual draw.
-    // Режим 2: блюр через перегрузку pos/size + ручная отрисовка.
     } else if (mode == 2) {
         ImVec2 pos(40.0f, 100.0f);
         ImVec2 size(360.0f, 200.0f);
@@ -85,8 +75,6 @@ void ExampleFrame(int screen_w, int screen_h) {
                             IM_COL32(255, 255, 255, 255), corner, ImDrawFlags_RoundCornersAll);
         dl->AddText(ImVec2(pos.x + 8.0f, pos.y + 8.0f), IM_COL32(255, 255, 255, 255),
                     "Blur::process(ImVec2 pos, ImVec2 size, radius, downscale)");
-    // Mode 3: raw integer rectangle API.
-    // Режим 3: сырой API через целочисленный прямоугольник.
     } else {
         int w = 360;
         int h = 200;

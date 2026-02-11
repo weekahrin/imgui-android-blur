@@ -2,10 +2,6 @@
 #include "../../blur.hpp"
 #include "../../blur/gpu/shaders/shaders.hpp"
 
-// opengl_examples.cpp
-// Demonstrates raw OpenGL usage with different blur types and backends.
-// Показывает использование blur в чистом OpenGL с разными типами и backend.
-
 static GLuint Compile(GLenum type, const char* src) {
     GLuint sh = glCreateShader(type);
     glShaderSource(sh, 1, &src, nullptr);
@@ -75,8 +71,6 @@ void ExampleFrame(int screen_w, int screen_h) {
     }
     EnsureGLResources();
 
-    // 9 usage examples (all types): Default, Gaussian, Box, Frosted, Kawase, Bokeh, Motion, Zoom, Pixelate.
-    // 9 примеров использования (все типы): Default, Gaussian, Box, Frosted, Kawase, Bokeh, Motion, Zoom, Pixelate.
     const Blur::Type types[] = {
         Blur::Type::Default,
         Blur::Type::Gaussian,
@@ -103,7 +97,5 @@ void ExampleFrame(int screen_w, int screen_h) {
         gBlur.process(x, y, w, h, radii[i], dss[i]);
     }
 
-    // Draw last processed blur texture on full-screen quad (simple presentation path).
-    // Рисуем последний обработанный blur texture на полный экран (упрощенный путь).
     DrawBlurTexture(gBlur.tex);
 }
