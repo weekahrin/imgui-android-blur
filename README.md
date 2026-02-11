@@ -1,5 +1,9 @@
 # ImGui Android Blur
 
+![Android](https://img.shields.io/badge/Android-3DDC84?logo=android&logoColor=white)
+![OpenGL%20ES](https://img.shields.io/badge/OpenGL%20ES-3.0-5586A4?logo=opengl&logoColor=white)
+![AArch64](https://img.shields.io/badge/AArch64-ARM64-0091BD?logo=arm&logoColor=white)
+
 Minimal OpenGL ES 3.0 blur helper for Android. Two paths:
 - `Hardware::GPU` (fast, framebuffer ping-pong)
 - `Hardware::CPU` (readback + CPU box blur)
