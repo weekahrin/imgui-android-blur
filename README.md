@@ -56,7 +56,7 @@ if (!blur) {
 
 blur->process(x, y, w, h, 12.0f, 4);
 // draw blur->tex in your renderer / ImGui draw list
-// отрисовка через blur->tex в рендере / ImGui draw list
+// отрисовка через blur->tex в рендере, хотя кому я это / ImGui draw list
 ```
 
 This pointer-style init avoids destructor-time GL cleanup when the library is unloaded without a valid GL context.
