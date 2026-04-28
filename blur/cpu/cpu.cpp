@@ -374,4 +374,8 @@ void cpu_apply(const uint8_t* input, uint8_t* output, int width, int height, flo
     }
 
     UpsampleBilinear(blurA.data(), smallW, smallH, output, width, height);
+
+    for (int i = 0; i < width * height; ++i) {
+        output[i * kChannels + 3] = 255;
+    }
 }

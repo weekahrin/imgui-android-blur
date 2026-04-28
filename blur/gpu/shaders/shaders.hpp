@@ -188,6 +188,7 @@ in vec2 vUV;
 uniform sampler2D uTex;
 out vec4 FragColor;
 void main() {
-    FragColor = texture(uTex, vUV);
+    vec4 c = texture(uTex, vUV);
+    FragColor = vec4(c.rgb, 1.0);
 }
 )";

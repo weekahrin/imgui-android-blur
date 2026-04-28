@@ -75,4 +75,6 @@ This pointer-style init avoids destructor-time GL cleanup when the library is un
 ## Notes
 - Coordinates for `process(draw, ...)` are derived from the current ImGui window.
 - For ImGui, flip UVs `(0,1)` to `(1,0)` to display correctly.
+- Blur textures are written with opaque alpha; use the ImGui image tint alpha to
+  fade the blur layer.
 - `Hardware::CPU` does `glReadPixels` and is slower.
